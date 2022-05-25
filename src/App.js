@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+
+// Containers
+import PokemonContainer from './containers/PokemonContainer';
+import PostsContainer from './containers/PostsContainer';
+
+// Contexts
+import PokemonContext from './contexts/pokemon/PokemonContext';
+import PostContext from './contexts/posts/PostContext';
+
 
 function App() {
+  const GetPokemonContext = React.useContext(PokemonContext)
+  const getPostsContext = React.useContext(PostContext)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Contexts App</h1>
+      <PokemonContext.Provider value= {GetPokemonContext}>
+        <PokemonContainer/>
+      </PokemonContext.Provider>
+
+      <PostContext.Provider value= {getPostsContext}>
+        <PostsContainer/>
+      </PostContext.Provider>
+
+    </>
   );
 }
 
