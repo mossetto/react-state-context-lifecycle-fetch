@@ -22,7 +22,11 @@ const PokemonLocationsList = () => {
         <ul>
             {
                 locations.map((location, index) =>(
-                    <li key={ index }> { location.name }</li>
+                    <>
+                    <li key={index}> {location.name}</li>
+                    
+                    
+                    </>
                 ))
             }
         </ul>
